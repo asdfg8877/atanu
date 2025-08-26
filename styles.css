@@ -1,0 +1,733 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background and Gradient Effects */
+.gradient-bg {
+    background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+    position: relative;
+}
+
+.gradient-bg::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Section Transitions */
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navigation Styles */
+.nav-item {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(45deg, #00d4ff, #7c3aed);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.nav-item.active::after,
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Skill Bar Animations */
+.skill-bar {
+    height: 10px;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(45deg, #00d4ff, #7c3aed, #ec4899);
+    border-radius: 15px;
+    width: 0%;
+    transition: width 2s ease-in-out;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Card Styles */
+.card {
+    backdrop-filter: blur(25px);
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2);
+    border-color: rgba(0, 212, 255, 0.4);
+}
+
+/* Floating Animation */
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Typewriter Effect */
+.typewriter {
+    overflow: hidden;
+    border-right: 3px solid rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgba(255, 255, 255, 0.75); }
+}
+
+/* Timeline Styles */
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(45deg, #00d4ff, #7c3aed);
+    border-radius: 50%;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 14px;
+    width: 2px;
+    height: calc(100% + 20px);
+    background: linear-gradient(to bottom, rgba(0, 212, 255, 0.6), transparent);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.timeline-item:last-child::after {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-item {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .typewriter {
+        font-size: 1.25rem;
+    }
+    
+    .timeline-item {
+        padding-left: 20px;
+    }
+    
+    .timeline-item::before {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .timeline-item::after {
+        left: 4px;
+        width: 1px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00d4ff, #7c3aed);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #00b8e6, #6d28d9);
+}
+
+/* Additional Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Button Hover Effects */
+button:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Form Focus Effects */
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    border-color: rgba(0, 212, 255, 0.6) !important;
+}
+
+/* Loading Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glow Effects */
+.glow {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.glow:hover {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+}
+
+/* Text Gradient Effects */
+.text-gradient {
+    background: linear-gradient(45deg, #00d4ff, #7c3aed, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Mobile Navigation */
+@media (max-width: 640px) {
+    .nav-item {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .gradient-bg::before {
+        opacity: 0.5;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .gradient-bg,
+    .gradient-bg::before {
+        background: white !important;
+    }
+    
+    .text-white {
+        color: black !important;
+    }
+    
+    .card {
+        border: 1px solid #ccc !important;
+        background: white !important;
+    }
+}
+
+JavaScript File (script.js)
+
+// Navigation functionality
+function showSection(sectionName) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Remove active class from all nav items
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Show selected section
+    document.getElementById(sectionName).classList.add('active');
+    
+    // Add active class to clicked nav item
+    event.target.classList.add('active');
+    
+    // Animate skill bars when skills section is shown
+    if (sectionName === 'skills') {
+        setTimeout(() => {
+            animateSkillBars();
+        }, 300);
+    }
+}
+
+// Animate skill bars
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    skillBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        bar.style.width = width + '%';
+    });
+}
+
+/* // Resume download functionality
+function downloadResume() {
+    // Create a comprehensive resume content
+    const resumeContent = `
+ALEX JOHNSON
+Creative Full-Stack Developer
+Email: alex@portfolio.com | Phone: +1 (555) 123-4567
+Location: San Francisco, CA
+LinkedIn: linkedin.com/in/alexjohnson | GitHub: github.com/alexjohnson
+
+PROFESSIONAL SUMMARY
+Passionate Full-Stack Developer with 3+ years of experience creating scalable web applications. 
+Expertise in modern JavaScript frameworks, cloud technologies, and agile development practices.
+Proven track record of improving application performance and leading development teams.
+
+EXPERIENCE
+
+Senior Full-Stack Developer | Tech Solutions Inc. | San Francisco, CA | 2022 - Present
+• Developed and maintained 15+ web applications using React, Node.js, and MongoDB
+• Led a team of 4 developers in creating scalable e-commerce solutions
+• Improved application performance by 40% through code optimization and database tuning
+• Implemented CI/CD pipelines reducing deployment time by 60%
+• Mentored junior developers in modern web development practices
+
+Full-Stack Developer | Digital Innovations | San Francisco, CA | 2020 - 2022
+• Built responsive web applications serving 10,000+ daily users
+• Implemented RESTful APIs and database design for multiple projects
+• Collaborated with UX/UI designers to create intuitive user interfaces
+• Reduced page load times by 35% through performance optimization
+• Participated in agile development processes and sprint planning
+
+Junior Web Developer | StartUp Hub | San Francisco, CA | 2019 - 2020
+• Developed frontend components using HTML, CSS, and JavaScript
+• Assisted in backend development with Node.js and Express
+• Participated in agile development processes and code reviews
+• Created responsive designs for mobile and desktop platforms
+• Contributed to open-source projects and internal tool development
+
+EDUCATION
+
+Bachelor of Computer Science | University of Technology | 2018 - 2022
+• Graduated with Honors, GPA: 3.8/4.0
+• Specialized in Software Engineering and Web Development
+• Completed capstone project: E-commerce platform with microservices architecture
+
+CERTIFICATIONS
+• Full-Stack Web Development - FreeCodeCamp (2022)
+• AWS Cloud Practitioner - Amazon Web Services (2023)
+• JavaScript Algorithms and Data Structures - FreeCodeCamp (2021)
+
+TECHNICAL SKILLS
+Frontend: HTML/CSS (95%), JavaScript (90%), React (85%), Vue.js (80%), TypeScript (75%)
+Backend: Node.js (88%), Python (82%), Express.js (85%), Django (70%)
+Databases: MongoDB (75%), PostgreSQL (78%), MySQL (70%), Redis (65%)
+Cloud & DevOps: AWS (80%), Docker (75%), Git (90%), CI/CD (70%)
+Tools: VS Code, Figma, Postman, Jest, Webpack, Babel
+
+KEY ACHIEVEMENTS
+• Led development of e-commerce platform serving 50,000+ users
+• Improved application performance by 40% through optimization techniques
+• Mentored 3 junior developers in modern web technologies
+• Implemented automated testing reducing bugs by 60%
+• Successfully delivered 20+ projects on time and within budget
+
+LANGUAGES
+• English (Native)
+• Spanish (Conversational)
+• French (Basic)
+
+INTERESTS
+• Open Source Contributions
+• Tech Blogging
+• UI/UX Design
+• Machine Learning
+• Photography
+            `;
+     */
+    // Create and download the resume
+    const blob = new Blob([resumeContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Alex_Johnson_Resume.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+    
+    // Show download confirmation
+    showDownloadConfirmation();
+}
+
+// Show download confirmation
+function showDownloadConfirmation() {
+    // Create temporary notification
+    const notification = document.createElement('div');
+    notification.className = 'fixed top-20 right-6 bg-gradient-to-r from-green-400 to-blue-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+    notification.innerHTML = `
+        <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Resume downloaded successfully!</span>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Animate out and remove
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Contact form functionality
+function showMessage() {
+    const modal = document.getElementById('messageModal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    
+    // Clear form
+    const form = document.querySelector('form');
+    form.reset();
+    
+    // Add animation class
+    const modalContent = modal.querySelector('.card');
+    modalContent.style.transform = 'scale(0.8)';
+    modalContent.style.opacity = '0';
+    
+    setTimeout(() => {
+        modalContent.style.transform = 'scale(1)';
+        modalContent.style.opacity = '1';
+        modalContent.style.transition = 'all 0.3s ease';
+    }, 50);
+}
+
+function closeMessage() {
+    const modal = document.getElementById('messageModal');
+    const modalContent = modal.querySelector('.card');
+    
+    modalContent.style.transform = 'scale(0.8)';
+    modalContent.style.opacity = '0';
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }, 300);
+}
+
+// Form validation
+function validateForm() {
+    const name = document.querySelector('input[type="text"]').value.trim();
+    const email = document.querySelector('input[type="email"]').value.trim();
+    const message = document.querySelector('textarea').value.trim();
+    
+    if (!name || !email || !message) {
+        showNotification('Please fill in all fields', 'error');
+        return false;
+    }
+    
+    if (!isValidEmail(email)) {
+        showNotification('Please enter a valid email address', 'error');
+        return false;
+    }
+    
+    return true;
+}
+
+// Email validation
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Show notification
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    const bgColor = type === 'success' ? 'from-green-400 to-blue-500' : 'from-red-400 to-pink-500';
+    
+    notification.className = `fixed top-20 right-6 bg-gradient-to-r ${bgColor} text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Smooth scrolling for navigation
+function smoothScrollTo(element) {
+    element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize skill bars animation for the about section
+    setTimeout(() => {
+        if (document.getElementById('about').classList.contains('active')) {
+            // Add any initialization animations here
+        }
+    }, 1000);
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeMessage();
+        }
+    });
+    
+    // Add click outside to close modal
+    document.getElementById('messageModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeMessage();
+        }
+    });
+    
+    // Lazy load animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all cards for animation
+    document.querySelectorAll('.card').forEach(card => {
+        observer.observe(card);
+    });
+});
+
+// Prevent form submission and handle with JavaScript
+document.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (validateForm()) {
+        showMessage();
+    }
+});
+
+// Add loading states for better UX
+function addLoadingState(button) {
+    const originalText = button.innerHTML;
+    button.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Processing...
+    `;
+    button.disabled = true;
+    
+    setTimeout(() => {
+        button.innerHTML = originalText;
+        button.disabled = false;
+    }, 2000);
+}
+
+// Enhanced mobile navigation
+function toggleMobileMenu() {
+    const nav = document.querySelector('nav .flex');
+    nav.classList.toggle('mobile-open');
+}
+
+// Add resize listener for responsive adjustments
+window.addEventListener('resize', function() {
+    // Adjust animations based on screen size
+    const isMobile = window.innerWidth < 768;
+    
+    if (isMobile) {
+        // Disable some animations on mobile for better performance
+        document.querySelectorAll('.floating').forEach(el => {
+            el.style.animation = 'none';
+        });
+    } else {
+        // Re-enable animations on desktop
+        document.querySelectorAll('.floating').forEach(el => {
+            el.style.animation = 'float 6s ease-in-out infinite';
+        });
+    }
+});
+
+// Utility functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// Performance optimization
+const debouncedResize = debounce(() => {
+    // Handle resize events
+    console.log('Window resized');
+}, 250);
+
+window.addEventListener('resize', debouncedResize);
+
+// Analytics tracking (placeholder)
+function trackEvent(eventName, eventData) {
+    // Add your analytics tracking code here
+    console.log('Event tracked:', eventName, eventData);
+}
+
+// Track navigation clicks
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+        trackEvent('navigation_click', {
+            section: item.textContent.trim()
+        });
+    });
+});
+
+// Track resume download
+function trackResumeDownload() {
+    trackEvent('resume_download', {
+        timestamp: new Date().toISOString()
+    });
+}
+
+// Track contact form submission
+function trackContactSubmission() {
+    trackEvent('contact_form_submit', {
+        timestamp: new Date().toISOString()
+    });
+}

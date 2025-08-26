@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Creative Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Mobile Menu Button (Visible on mobile, hidden on desktop) -->
+<button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+  </svg>
+</button>
+
+<!-- Mobile Dropdown Menu (Hidden by default, shown when toggled) -->
+<div id="mobileMenu" class="hidden fixed top-16 left-0 w-full bg-black/80 backdrop-blur-md flex flex-col items-center py-6 space-y-6 md:hidden z-40">
+  <a href="#about" class="text-lg font-semibold hover:text-pink-400 transition" onclick="toggleMenu()">About</a>
+  <a href="#skills" class="text-lg font-semibold hover:text-pink-400 transition" onclick="toggleMenu()">Skills</a>
+  <a href="#education" class="text-lg font-semibold hover:text-pink-400 transition" onclick="toggleMenu()">Education</a>
+  <a href="#experience" class="text-lg font-semibold hover:text-pink-400 transition" onclick="toggleMenu()">Experience</a>
+  <a href="#resume" class="text-lg font-semibold hover:text-pink-400 transition" onclick="toggleMenu()">Resume</a>
+  <a href="#contact" class="text-lg font-semibold hover:text-pink-400 transition" onclick="toggleMenu()">Contact</a>
+</div>
+
+<script>
+  // Toggle Function
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("hidden");
+  }
+</script>
+
+    
+</head>
+<body class="gradient-bg min-h-screen text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-filter backdrop-blur-25 bg-black bg-opacity-20 border-b border-cyan-400 border-opacity-30 shadow-lg shadow-cyan-500/10">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">
+                    <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Portfolio</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button class="nav-item active px-4 py-2 font-medium" onclick="showSection('about', event)">About</button>
+                    <button class="nav-item px-4 py-2 font-medium" onclick="showSection('skills', event)">Skills</button>
+                    <button class="nav-item px-4 py-2 font-medium" onclick="showSection('education', event)">Education</button>
+                    <button class="nav-item px-4 py-2 font-medium" onclick="showSection('experience', event)">Project</button>
+                    <button class="nav-item px-4 py-2 font-medium" onclick="showSection('resume', event)">Resume</button>
+                    <button class="nav-item px-4 py-2 font-medium" onclick="showSection('contact', event)">Contact</button>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-20">
+        <!-- About Section -->
+        <!-- <section id="about" class="section active min-h-screen flex items-center justify-center px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="floating mb-8">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 p-1 mb-6 shadow-2xl shadow-cyan-500/30">
+                        <div class="w-full h-full rounded-full bg-black bg-opacity-30 flex items-center justify-center backdrop-blur-sm">
+                            <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div> -->
+
+                <section id="about" class="section active min-h-screen flex items-center justify-center px-6">
+
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="floating mb-8">
+                    <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-purple-600 p-1 mb-6 shadow-2xl shadow-cyan-500/30">
+                        <img src="profile.jpg" alt="Profile Picture" class="w-full h-full object-cover rounded-full">
+                    </div>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 ">
+                    Hi, I'm <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Atanu /></span>
+                </h1>
+                <div class="text-xl md:text-2xl mb-8 typewriter">I am a computer science & Engineering student</div>
+                <p class="text-lg md:text-xl text-white text-opacity-80 max-w-2xl mx-auto leading-relaxed">
+                    Passionate about creating beautiful, functional, and user-friendly digital experiences. 
+                    I combine creativity with technical expertise to bring ideas to life through code.
+                <!-- </p>
+                <div class="mt-12 flex flex-wrap justify-center gap-4">
+                    <div class="card rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold text-cyan-400">3+</div>
+                        <div class="text-sm opacity-80">Years Experience</div>
+                    </div>
+                    <div class="card rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold text-purple-400">50+</div>
+                        <div class="text-sm opacity-80">Projects Completed</div>
+                    </div>
+                    <div class="card rounded-2xl p-6 text-center">
+                        <div class="text-3xl font-bold text-pink-400">100%</div>
+                        <div class="text-sm opacity-80">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+
+        <!-- Skills Section -->
+        <!-- <section id="skills" class="section min-h-screen flex items-center justify-center px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                    My <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Skills</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card rounded-2xl p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-cyan-400">Frontend</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>HTML/CSS</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="95"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>JavaScript</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="90"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>React</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>Vue.js</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card rounded-2xl p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-purple-450">SKILLS</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>Node.js</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="88"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>Python</span>
+                                    <span>82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="82"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>MongoDB</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span>PostgreSQL</span>
+                                    <span>78%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="78"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section> -->
+<!-- Skills Section -->
+<section id="skills" class="section min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+            My <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Skills</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Frontend -->
+            <div class="card rounded-2xl p-8">
+                <h3 class="text-2xl font-semibold mb-6 text-cyan-400">•	Languages</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Java</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>C</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>html</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>css</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend -->
+            <div class="card rounded-2xl p-8">
+                <h3 class="text-2xl font-semibold mb-6 text-purple-400">•	Computer Skills </h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Power point</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Excel</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>MS word</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                    </div>
+                    <div>
+                        <!-- <div class="flex justify-between mb-2"><span>PostgreSQL</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="78"></div></div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- DevOps -->
+            <div class="card rounded-2xl p-8">
+                <h3 class="text-2xl font-semibold mb-6 text-green-400">•	Behavioral Skills</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Leadership</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Team Player</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                    </div>
+                    <div>
+                        <!-- <div class="flex justify-between mb-2"><span>CI/CD (Jenkins/GitHub Actions)</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div> -->
+                    </div>
+                    <div>
+                        <!-- <div class="flex justify-between mb-2"><span>AWS</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Tools -->
+            <div class="card rounded-2xl p-8">
+                <h3 class="text-2xl font-semibold mb-6 text-yellow-400">•	Soft skills </h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Problem-solving</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Analytical thinking</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="65"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Time management</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Team collaboration</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="77"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Communication skills</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span>Adaptability</span></div>
+                        <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        <!-- Education Section -->
+        <section id="education" class="section min-h-screen flex items-center justify-center px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                    My <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Education</span>
+                </h2>
+                <div class="space-y-8">
+                    <div class="timeline-item card rounded-2xl p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <h3 class="text-2xl font-semibold text-cyan-400">BACHELOR OF TECHNOLOGY IN CSE</h3>
+                            <span class="text-purple-400 font-medium">SGPA-7.21/10</span>
+                        </div>
+                        <span class="text-purple-400 font-medium">2021 - 2025</span>
+                        <div>
+                            <span class="text-purple-400 font-medium">Kolkata,West bengal</span>
+                        </div>
+                        <p class="text-lg font-medium text-cyan-400">Calcutta Institute of Engineering & Management</p>
+                        <p class="text-white text-opacity-80">
+                            Graduated  B.Tech in Computer Science and Engineering with strong technical foundation.
+                            Skilled in programming, software development, and problem-solving techniques.
+                            Actively involved in projects and learning emerging technologies to build innovative solutions.
+                        </p>
+                    </div>
+                    <div class="timeline-item card rounded-2xl p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <h3 class="text-2xl font-semibold text-cyan-400">HIGHER SECONDARY(WBCHSE)</h3>
+                            <span class="text-purple-400 font-medium">Percentage: 80.2</span>
+                        </div>
+                        <span class="text-purple-400 font-medium">2019-2021</span>
+                        <div>
+                            <span class="text-purple-400 font-medium">Bankura,West bengal</span>
+                        </div>
+                        <p class="text-lg font-medium text-cyan-400">Amarkanan Deshbandhu Vidyalaya</p>
+                        <p class="text-white text-opacity-80">
+                            Completed Higher Secondary education with consistent academic performance.
+                            Enhanced knowledge, analytical skills, and overall personality development.
+                        </p>
+                    </div>
+                    <div class="timeline-item card rounded-2xl p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <h3 class="text-2xl font-semibold text-cyan-400">MADHYAMIK(WBBSE)</h3>
+                            <span class="text-purple-400 font-medium">Percentage: 64</span>
+                        </div>
+                        <div>
+                            <span class="text-purple-400 font-medium mb-2">2018-2019</span>
+                        </div>
+                        <span class="text-purple-400 font-medium">Bankura,West bengal</span>
+                            
+                        <p class="text-lg font-medium text-cyan-400">Rampur Vivekananda Vidyapith</p>
+                        <p class="text-white text-opacity-80">
+                            Successfully completed Madhyamik with a solid academic base.
+                            Developed strong fundamentals and learning discipline during school years.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Section -->
+        <section id="experience" class="section min-h-screen flex items-center justify-center px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                     <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Project</span>
+                </h2>
+                <div class="space-y-8">
+                    <div class="timeline-item card rounded-2xl p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <h3 class="text-2xl font-semibold text-cyan-400">Tic Tac Toe Game</h3>
+                            <!-- <span class="text-purple-400 font-medium">2025 - Present</span> -->
+                            <a href="https://asdfg8877.github.io/tic_tac_toe/"class="text-purple-400 font-medium">Click link</a>
+                        </div>
+                        <p class="text-lg font-medium mb-4 text-white"></p>
+                        <ul class="text-white text-opacity-80 space-y-2">
+                            <li>•  	Developed an interactive Tic Tac Toe game using HTML, CSS, and JavaScript with smooth animations and responsive design.</li>
+                            <li>•  	Implemented multiple game modes: Player vs Player, Player vs Bot, and Player vs Strong Al Bot (unbeatable).</li>
+                            <li>•  	Added features such as game history tracking, reset/refresh options, and score recording.</li>
+                            <li>•  	Published project online for easy access.</li>
+                        </ul>
+                    </div>
+                    <!-- <div class="timeline-item card rounded-2xl p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <h3 class="text-2xl font-semibold text-cyan-400">Full-Stack Developer</h3>
+                            <span class="text-purple-400 font-medium">2020 - 2022</span>
+                        </div>
+                        <p class="text-lg font-medium mb-4 text-white">Digital Innovations | San Francisco, CA</p>
+                        <ul class="text-white text-opacity-80 space-y-2">
+                            <li>• Built responsive web applications serving 10,000+ daily users</li>
+                            <li>• Implemented RESTful APIs and database design for multiple projects</li>
+                            <li>• Collaborated with UX/UI designers to create intuitive user interfaces</li>
+                            <li>• Reduced page load times by 35% through performance optimization</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item card rounded-2xl p-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <h3 class="text-2xl font-semibold text-cyan-400">Junior Web Developer</h3>
+                            <span class="text-purple-400 font-medium">2019 - 2020</span>
+                        </div>
+                        <p class="text-lg font-medium mb-4 text-white">StartUp Hub | San Francisco, CA</p>
+                        <ul class="text-white text-opacity-80 space-y-2">
+                            <li>• Developed frontend components using HTML, CSS, and JavaScript</li>
+                            <li>• Assisted in backend development with Node.js and Express</li>
+                            <li>• Participated in agile development processes and code reviews</li>
+                            <li>• Created responsive designs for mobile and desktop platforms</li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="section min-h-screen flex items-center justify-center px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                    My <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Resume</span>
+                </h2>
+                <div class="card rounded-2xl p-8 mb-8">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold mb-2">Atanu Maji</h3>
+                        <p class="text-xl text-cyan-400 mb-4"></p>
+                        <div class="flex flex-wrap justify-center gap-4 text-sm text-white text-opacity-80">
+                            <span>📧 majiatanu9734258191@gmail.com</span>
+                            <span>📱 +91 8436190073</span>
+                            <span>📍 Bankura,West bengal</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-semibold text-purple-400 mb-4">Professional Summary</h4>
+                            <p class="text-white text-opacity-80 mb-6">
+                                Constantly seeking to engage my knowledge to learn something useful and 
+                                keep challenging myself to be a better performer in accordance to the company's
+                                 requirements. Good and quick learner, team player, love to learn new things,
+                                  flexible with different technologies.
+                            </p>
+                            
+                            <h4 class="text-xl font-semibold text-purple-400 mb-4">Core Skills</h4>
+                            <div class="grid grid-cols-2 gap-2 text-sm">
+                                <div class="text-white text-opacity-80">• java</div>
+                                <div class="text-white text-opacity-80">• c</div>
+                                 <div class="text-white text-opacity-80">• dsa</div>
+                                <div class="text-white text-opacity-80">• oops</div>
+                                <div class="text-white text-opacity-80">• html</div>
+                                <div class="text-white text-opacity-80">• css</div>
+                                <div class="text-white text-opacity-80">• Excel</div>
+                                <div class="text-white text-opacity-80">• Soft skill</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-2xl font-semibold text-purple-400 mb-4">Project</h4>
+                            <a href="https://asdfg8877.github.io/tic_tac_toe/"class="text-cyan-400 font-medium">Click link</a>
+                            <ul class="text-white text-opacity-80 space-y-2 text-sm mb-6">
+                                <li>•  	Developed an interactive Tic Tac Toe game using HTML, CSS, and JavaScript with smooth animations and responsive design.</li>
+                                <li>•  	Implemented multiple game modes: Player vs Player, Player vs Bot, and Player vs Strong Al Bot (unbeatable).</li>
+                                <li>•  	Added features such as game history tracking, reset/refresh options, and score recording. </li>
+                                <li>•   Published project online for easy access</li>
+                            </ul>
+                            
+                            <h4 class="text-xl font-semibold text-purple-400 mb-4">Languages</h4>
+                            <div class="text-white text-opacity-80 text-sm">
+                                <div>Bengali</div>
+                                <div>English</div>
+                                <div>Hindi</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <button onclick="downloadResume()" class="px-8 py-3 rounded-lg bg-gradient-to-r from-cyan-400 to-purple-600 text-white font-semibold hover:from-cyan-500 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg shadow-cyan-500/25">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <a href="resume.pdf" download="resume.pdf">Download Full Resume</a>
+                            <!-- Download Full Resume -->
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section min-h-screen flex items-center justify-center px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">
+                    Get In <span class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Touch</span>
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-8 text-pink-400">Let's Connect</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Email</p>
+                                    <p class="text-white text-opacity-80">majiatanu9734258191@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Phone</p>
+                                    <p class="text-white text-opacity-80">+91 8436190073</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Location</p>
+                                    <p class="text-white text-opacity-80">Bankura,West Bengal</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="mt-8 flex space-x-4">
+                            <button class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 flex items-center justify-center hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </button>
+                            <button class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 flex items-center justify-center hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </button>
+                            <button class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 flex items-center justify-center hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </button>
+                        </div> -->
+                        <div class="mt-8 flex space-x-4">
+ <!-- Instagram -->
+    <a href="https://www.instagram.com/atanu_rakesh_07?igsh=MTNzMmVlbXYzNndmdg==" target="_blank">
+        <button class="w-12 h-12 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 flex items-center justify-center hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.25-.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/>
+            </svg>
+        </button>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/atanumaji.maji.1?mibextid=ZbWKwL" target="_blank">
+        <button class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12a10 10 0 1 0-11.5 9.95v-7.05H8v-2.9h2.5V9.5c0-2.5 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.5h-1.26c-1.24 0-1.62.77-1.62 1.56v1.88H16.5l-.4 2.9h-2.34v7.05A10 10 0 0 0 22 12Z"/>
+            </svg>
+        </button>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/918436190073" target="_blank">
+        <button class="w-12 h-12 rounded-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.173.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.009-.372-.011-.571-.011-.198 0-.52.074-.792.372-.272.298-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.718 2.006-1.412.248-.694.248-1.288.173-1.412-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004A9.87 9.87 0 0 1 2.02 12.01a9.87 9.87 0 0 1 9.87-9.871c2.64 0 5.122 1.03 6.988 2.896a9.825 9.825 0 0 1 2.893 6.98 9.87 9.87 0 0 1-9.87 9.87m8.413-18.282A11.815 11.815 0 0 0 11.89 0C5.327 0 0 5.327 0 11.89c0 2.096.547 4.142 1.588 5.945L0 24l6.348-1.655A11.868 11.868 0 0 0 11.89 23.8h.004c6.563 0 11.89-5.327 11.89-11.89 0-3.176-1.237-6.164-3.487-8.414"/>
+            </svg>
+        </button>
+    </a>
+</div>
+
+                    </div>
+                    <div class="card rounded-2xl p-8">
+                        <form class="space-y-6">
+                            <div>
+                                <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-pink-400 transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-pink-400 transition-colors">
+                            </div>
+                            <div>
+                                <textarea rows="5" placeholder="Your Message" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-pink-400 transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="button" onclick="showMessage()" class="w-full py-3 rounded-lg bg-gradient-to-r from-pink-400 to-purple-600 text-white font-semibold hover:from-pink-500 hover:to-purple-700 transition-all transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Success Message Modal -->
+    <div id="messageModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="card rounded-2xl p-8 max-w-md w-full mx-4 text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Message Sent!</h3>
+            <p class="text-white text-opacity-80 mb-6">Thank you for reaching out. I'll get back to you soon!</p>
+            <button onclick="closeMessage()" class="px-6 py-2 rounded-lg bg-gradient-to-r from-pink-400 to-purple-600 text-white font-medium hover:from-pink-500 hover:to-purple-700 transition-all">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974cf45aa6d33fea',t:'MTc1NjE0NDQ2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
